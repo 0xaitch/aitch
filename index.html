@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a0a0b" />
+<meta name="description" content="Hamza Khan. Business development, GTM and sales across Web3." />
+<meta property="og:title" content="Hamza Khan" />
+<meta property="og:description" content="Business development, GTM and sales. Helping Web3 projects scale through strategic outreach and high-trust relationships." />
+<meta property="og:type" content="website" />
+<title>Hamza Khan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #07070a;
+    --bg-2:      #0e0e14;
+    --card:      rgba(255,255,255,0.025);
+    --ink:       #ebedf2;
+    --ink-dim:   #8a8a96;
+    --ink-mute:  #4d4d56;
+    --line:      rgba(255,255,255,0.06);
+    --line-2:    rgba(255,255,255,0.11);
+    --accent:    #f0b866;
+    --accent-2:  #f47c6b;
+    --accent-dim: rgba(240,184,102,0.18);
+    --spot-x: 50%;
+    --spot-y: 30%;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  .bg-base {
+    position: fixed;
+    inset: 0;
+    z-index: -6;
+    background:
+      radial-gradient(1200px 700px at 50% -20%, rgba(244,124,107,0.10), transparent 60%),
+      radial-gradient(900px 600px at 100% 30%, rgba(240,184,102,0.08), transparent 60%),
+      radial-gradient(800px 500px at 0% 80%, rgba(240,184,102,0.05), transparent 60%),
+      var(--bg);
+  }
+
+  .aurora {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+    pointer-events: none;
+    overflow: hidden;
+    filter: blur(60px) saturate(140%);
+    opacity: 0.5;
+  }
+  .aurora::before, .aurora::after, .aurora .blob {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    will-change: transform;
+  }
+  .aurora::before {
+    width: 55vw; height: 55vw;
+    top: -15vw; right: -10vw;
+    background: radial-gradient(circle, rgba(240,184,102,0.5) 0%, transparent 60%);
+    animation: float-1 22s ease-in-out infinite alternate;
+  }
+  .aurora::after {
+    width: 50vw; height: 50vw;
+    bottom: -15vw; left: -10vw;
+    background: radial-gradient(circle, rgba(244,124,107,0.45) 0%, transparent 60%);
+    animation: float-2 26s ease-in-out infinite alternate;
+  }
+  .aurora .blob {
+    width: 40vw; height: 40vw;
+    top: 30%; left: 35%;
+    background: radial-gradient(circle, rgba(120,168,150,0.28) 0%, transparent 60%);
+    animation: float-3 30s ease-in-out infinite alternate;
+  }
+  @keyframes float-1 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-15vw, 18vh) scale(1.15); } }
+  @keyframes float-2 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(18vw, -22vh) scale(1.2); } }
+  @keyframes float-3 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-20vw, -10vh) scale(0.85); } }
+
+  .bg-dots {
+    position: fixed;
+    inset: 0;
+    z-index: -4;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+    background-size: 26px 26px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 90%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 90%);
+  }
+
+  .grid-floor {
+    position: fixed;
+    left: -10%; right: -10%; bottom: -30vh;
+    height: 70vh;
+    z-index: -4;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(240,184,102,0.18) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(240,184,102,0.18) 1px, transparent 1px);
+    background-size: 60px 60px;
+    transform: perspective(700px) rotateX(65deg);
+    transform-origin: top center;
+    mask-image: linear-gradient(180deg, black 0%, black 35%, transparent 80%);
+    -webkit-mask-image: linear-gradient(180deg, black 0%, black 35%, transparent 80%);
+    animation: grid-pan 18s linear infinite;
+  }
+  @keyframes grid-pan { from { background-position: 0 0, 0 0; } to { background-position: 0 60px, 60px 0; } }
+
+  .spotlight {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+    background:
+      radial-gradient(500px circle at var(--spot-x) var(--spot-y), transparent 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.85) 100%),
+      radial-gradient(320px circle at var(--spot-x) var(--spot-y), rgba(240,184,102,0.10), transparent 65%);
+    transition: background 0.12s ease-out;
+  }
+
+  .scanline {
+    position: fixed;
+    left: 0; right: 0; height: 1px;
+    z-index: -2;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(240,184,102,0.65), transparent);
+    box-shadow: 0 0 12px rgba(240,184,102,0.5);
+    opacity: 0.35;
+    animation: scan 12s linear infinite;
+  }
+  @keyframes scan { 0% { top: -2px; opacity: 0; } 8% { opacity: 0.35; } 100% { top: 100vh; opacity: 0; } }
+
+  .bg-noise {
+    position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    opacity: 0.04; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  .statusbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 90;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--ink-mute); letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--line);
+    background: rgba(10,10,11,0.6);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .statusbar .left, .statusbar .right { display: flex; align-items: center; gap: 16px; }
+  .statusbar .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 8px var(--accent); animation: blink 2.4s ease-in-out infinite; }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+  .statusbar .sep { color: var(--ink-mute); opacity: 0.5; }
+  @media (max-width: 700px) { .statusbar .hide-mobile { display: none; } }
+
+  nav {
+    position: fixed; top: 56px; left: 50%; transform: translateX(-50%); z-index: 80;
+    display: flex; align-items: center; gap: 2px; padding: 6px;
+    background: rgba(10,10,11,0.7);
+    border: 1px solid var(--line); border-radius: 100px;
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    max-width: calc(100vw - 24px);
+  }
+  @media (max-width: 520px) { nav { gap: 0; padding: 5px; } nav a { padding: 6px 11px; font-size: 12px; } }
+  nav a { padding: 7px 14px; border-radius: 100px; font-size: 13px; font-weight: 500; color: var(--ink-dim); transition: all 0.2s; white-space: nowrap; line-height: 1.2; }
+  nav a:hover { color: var(--ink); background: rgba(255,255,255,0.04); }
+  nav a.cta { background: var(--ink); color: var(--bg); }
+  nav a.cta:hover { background: var(--accent); color: var(--bg); }
+
+  main { position: relative; z-index: 1; }
+  section { max-width: 980px; margin: 0 auto; padding: 90px 32px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-mute); margin-bottom: 24px; }
+  .eyebrow::before { content: ''; width: 6px; height: 1px; background: var(--accent); }
+  h2.section-title { font-size: clamp(28px, 4.2vw, 44px); font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 48px; color: var(--ink); }
+  h2.section-title em { font-style: normal; color: var(--ink-dim); }
+
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 160px; padding-bottom: 80px; position: relative; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; background: rgba(255,255,255,0.03); border: 1px solid var(--line-2); border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-dim); margin-bottom: 32px; }
+  .hero-tag .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 8px var(--accent); }
+  h1 { font-size: clamp(48px, 8vw, 88px); font-weight: 500; letter-spacing: -0.035em; line-height: 0.98; margin-bottom: 28px; color: var(--ink); }
+  h1 .accent { background: linear-gradient(110deg, var(--accent) 10%, var(--accent-2) 90%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; display: inline-block; padding-bottom: 0.05em; line-height: 1; }
+  .hero-role { font-size: 18px; color: var(--ink-dim); margin-bottom: 28px; font-weight: 400; }
+  .hero-role strong { color: var(--ink); font-weight: 500; }
+  .hero-desc { font-size: 16px; color: var(--ink-dim); max-width: 600px; margin-bottom: 40px; }
+  .hero-desc a { color: var(--ink); border-bottom: 1px solid var(--line-2); transition: border-color 0.2s, color 0.2s; }
+  .hero-desc a:hover { color: var(--accent); border-color: var(--accent); }
+  .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: all 0.2s; border: 1px solid transparent; }
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-ghost { border-color: var(--line-2); color: var(--ink); background: transparent; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.18); }
+  .btn .arrow { transition: transform 0.2s; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 24px; row-gap: 28px; margin-top: 80px; padding-top: 32px; border-top: 1px solid var(--line); }
+  @media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); column-gap: 16px; row-gap: 24px; } }
+  .stat { padding: 0; position: relative; min-width: 0; }
+  .stat-num { font-size: clamp(26px, 3.6vw, 38px); font-weight: 500; letter-spacing: -0.025em; line-height: 1; color: var(--ink); margin-bottom: 6px; font-variant-numeric: tabular-nums; font-family: 'JetBrains Mono', monospace; }
+  .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ''; position: absolute; left: 6px; top: 12px; bottom: 12px; width: 1px; background: var(--line); }
+  .job { position: relative; padding: 20px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: baseline; transition: padding 0.25s; }
+  .job:hover { padding-left: 10px; }
+  .job::before { content: ''; position: absolute; left: -28px; top: 28px; width: 13px; height: 13px; border-radius: 50%; background: var(--bg); border: 1px solid var(--line-2); transition: all 0.25s; }
+  .job.active::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-dim); }
+  .job:hover::before { border-color: var(--accent); }
+  .job-title { font-size: 17px; font-weight: 500; margin-bottom: 2px; color: var(--ink); }
+  .job-tag { display: inline-block; font-size: 10px; font-family: 'JetBrains Mono', monospace; padding: 2px 7px; border-radius: 4px; background: var(--accent-dim); color: var(--accent); margin-left: 8px; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500; border: 1px solid rgba(240,184,102,0.25); }
+  .job-company { color: var(--ink-dim); font-size: 13.5px; }
+  .job-points { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 6px; }
+  .job-points li { position: relative; padding-left: 16px; font-size: 12.5px; line-height: 1.5; color: var(--ink-mute); }
+  .job-points li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+  .job-points strong { color: var(--ink-dim); font-weight: 600; }
+  .job-date { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--ink-mute); white-space: nowrap; }
+  @media (max-width: 600px) { .job { grid-template-columns: 1fr; gap: 4px; } }
+
+  .stack-intro { color: var(--ink-dim); font-size: 15px; line-height: 1.6; max-width: 560px; margin: 14px 0 4px; }
+  .tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+  .tech-pill { padding: 12px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; color: var(--ink-dim); display: flex; align-items: center; gap: 10px; transition: all 0.2s; }
+  .tech-pill:hover { border-color: var(--line-2); color: var(--ink); background: rgba(255,255,255,0.03); }
+  .tech-pill .ico { font-size: 13px; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+
+  .contact { text-align: center; padding: 100px 32px; }
+  .contact h2 { font-size: clamp(36px, 6vw, 64px); font-weight: 500; letter-spacing: -0.035em; line-height: 1; margin-bottom: 24px; color: var(--ink); }
+  .contact h2 .accent { background: linear-gradient(110deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: italic; font-weight: 400; display: inline-block; padding: 0 0.12em 0.08em 0.05em; margin: 0 -0.05em; line-height: 1.15; }
+  .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 40px; }
+  .contact-link { padding: 12px 20px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 500; transition: all 0.2s; color: var(--ink); font-family: 'JetBrains Mono', monospace; position: relative; z-index: 2; pointer-events: auto; cursor: pointer; }
+  .contact-link:hover { border-color: var(--accent); background: var(--accent-dim); color: var(--accent); }
+  footer { text-align: center; padding: 32px; border-top: 1px solid var(--line); color: var(--ink-mute); font-size: 12px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; }
+  footer .sep { opacity: 0.4; margin: 0 8px; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  .edge { position: fixed; top: 50%; z-index: 70; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.3em; color: var(--ink-mute); text-transform: uppercase; pointer-events: none; white-space: nowrap; }
+  .edge.left  { left: 14px;  transform: translateY(-50%) rotate(-90deg); transform-origin: left center; }
+  .edge.right { right: 14px; transform: translateY(-50%) rotate(90deg);  transform-origin: right center; }
+  .edge .sep { color: var(--accent); margin: 0 8px; opacity: 0.5; }
+  @media (max-width: 900px) { .edge { display: none; } }
+
+  .hero { position: relative; }
+  .hero-corners { position: absolute; inset: 130px 0 60px 0; pointer-events: none; }
+  .hero-corners .c { position: absolute; width: 18px; height: 18px; border-color: var(--accent); opacity: 0.55; }
+  .hero-corners .tl { top: 0; left: -8px; border-top: 1px solid var(--accent); border-left: 1px solid var(--accent); }
+  .hero-corners .tr { top: 0; right: -8px; border-top: 1px solid var(--accent); border-right: 1px solid var(--accent); }
+  .hero-corners .bl { bottom: 0; left: -8px; border-bottom: 1px solid var(--accent); border-left: 1px solid var(--accent); }
+  .hero-corners .br { bottom: 0; right: -8px; border-bottom: 1px solid var(--accent); border-right: 1px solid var(--accent); }
+
+  .hero-grid { display: grid; grid-template-columns: 1fr minmax(320px, 400px); gap: 48px; align-items: start; }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .artifact-stack { display: flex; flex-direction: column; gap: 14px; margin-top: 80px; }
+  @media (max-width: 900px) { .artifact-stack { margin-top: 0; } }
+
+  /* name scramble effect */
+  .scramble-char { color: var(--accent); -webkit-text-fill-color: var(--accent); }
+
+  .currently {
+    position: relative;
+    background: linear-gradient(180deg, rgba(240,184,102,0.06), rgba(244,124,107,0.04)), rgba(14,14,20,0.7);
+    border: 1px solid var(--line-2); border-radius: 14px; padding: 18px 20px;
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    font-family: 'JetBrains Mono', monospace; font-size: 13px;
+    box-shadow: 0 20px 60px -20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+  .currently::before { content: ''; position: absolute; top: 0; left: 16px; right: 16px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), var(--accent-2), transparent); opacity: 0.7; }
+  .currently .head { display: flex; align-items: center; gap: 10px; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px dashed var(--line-2); color: var(--ink); text-transform: uppercase; letter-spacing: 0.24em; font-size: 11px; font-weight: 600; }
+  .currently .head .dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 10px var(--accent), 0 0 22px var(--accent); animation: blink 2.4s ease-in-out infinite; }
+  .currently .row { display: grid; grid-template-columns: 80px 1fr; padding: 7px 0; font-size: 13px; align-items: baseline; }
+  .currently .k { color: var(--ink-mute); text-transform: uppercase; font-size: 10px; letter-spacing: 0.15em; font-weight: 500; }
+  .currently .v { color: var(--ink); font-weight: 600; letter-spacing: -0.005em; }
+  .currently .v.accent { background: linear-gradient(110deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700; }
+
+  .terminal { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; backdrop-filter: blur(10px); font-family: 'JetBrains Mono', monospace; font-size: 14px; box-shadow: 0 20px 60px -20px rgba(0,0,0,0.6); }
+  .terminal .t-head { display: flex; align-items: center; gap: 7px; padding: 11px 16px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.015); font-size: 12px; color: var(--ink-dim); }
+  .terminal .t-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--line-2); }
+  .terminal .t-dot.r { background: #ff5f57; }
+  .terminal .t-dot.y { background: #febc2e; }
+  .terminal .t-dot.g { background: #28c840; }
+  .terminal .t-name { margin-left: 10px; }
+  .terminal .t-body { padding: 18px 18px 20px; line-height: 1.75; font-size: 14px; }
+  .terminal .t-prompt { color: var(--accent); margin-right: 10px; font-weight: 600; }
+  .terminal .t-out { color: var(--ink-dim); padding-left: 22px; }
+  .terminal .t-out .ok { color: #4ade80; font-weight: 600; }
+  .terminal .caret { display: inline-block; width: 7px; height: 16px; background: var(--accent); vertical-align: text-bottom; margin-left: 4px; animation: caret 1s steps(2) infinite; }
+  @keyframes caret { 50% { opacity: 0; } }
+
+  .sec-num { position: absolute; top: 60px; right: 32px; font-family: 'JetBrains Mono', monospace; font-size: clamp(80px, 14vw, 200px); font-weight: 500; line-height: 1; color: rgba(255,255,255,0.025); letter-spacing: -0.05em; pointer-events: none; user-select: none; z-index: 0; }
+  section { position: relative; }
+  section > * { position: relative; z-index: 1; }
+
+  .kbd-hint { position: fixed; bottom: 18px; right: 18px; z-index: 70; display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(10,10,11,0.75); border: 1px solid var(--line-2); border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-mute); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .kbd-hint kbd { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 4px; background: rgba(255,255,255,0.06); border: 1px solid var(--line-2); color: var(--ink-dim); font-family: inherit; font-size: 10px; }
+  @media (max-width: 700px) { .kbd-hint { display: none; } }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 100px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+</style>
+</head>
+<body>
+
+<div class="bg-base"></div>
+<div class="aurora"><div class="blob"></div></div>
+<div class="grid-floor"></div>
+<div class="bg-dots"></div>
+<div class="spotlight"></div>
+<div class="scanline"></div>
+<div class="bg-noise"></div>
+
+<div class="edge left">hamza khan <span class="sep">//</span> portfolio.v1.1</div>
+<div class="edge right">lat 25.2° <span class="sep">·</span> lon 55.3° <span class="sep">·</span> Dubai, UAE</div>
+
+<div class="kbd-hint">
+  <span>navigate</span>
+  <kbd>↑</kbd><kbd>↓</kbd>
+  <span style="opacity:0.4">·</span>
+  <span>search</span>
+  <kbd>/</kbd>
+</div>
+
+<div class="statusbar">
+  <div class="left">
+    <span class="dot"></span>
+    <span>0xaitch</span>
+    <span class="sep hide-mobile">·</span>
+    <span class="hide-mobile">v1.1</span>
+  </div>
+  <div class="right">
+    <span class="hide-mobile">SYS://online</span>
+    <span class="sep hide-mobile">·</span>
+    <span id="clock">--:--:--</span>
+  </div>
+</div>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#work">Work</a>
+  <a href="#toolkit">Toolkit</a>
+  <a href="#contact" class="cta">Get in touch</a>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-corners" aria-hidden="true">
+      <span class="c tl"></span><span class="c tr"></span>
+      <span class="c bl"></span><span class="c br"></span>
+    </div>
+    <div class="sec-num" aria-hidden="true">00</div>
+
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag reveal">
+          <span class="dot"></span>
+          <span>Looking for a kick-ass team to build with</span>
+        </div>
+        <h1 class="reveal">
+          <span id="nameScramble" class="accent">Hamza Khan</span>
+        </h1>
+        <p class="hero-role reveal">
+          <strong>Business Development, GTM &amp; Sales</strong>
+        </p>
+        <p class="hero-desc reveal">
+          My path into Web3 started with a Formula Student competition, where I wasn't
+          building the car, I was writing the business plan behind it. That's what got me
+          hooked on turning ambitious ideas into real traction. Since then I've worked across
+          sales, partnerships, and operations, helping projects scale through strategic
+          outreach, high-trust relationships, and finding the opportunities that actually move
+          the needle. What I like most about BD is the mix of curiosity and clarity it
+          demands: asking the right questions, building momentum from nothing, and creating
+          real value on both sides of the table. If you're building for the long term, let's talk.
+        </p>
+        <div class="hero-cta reveal">
+          <a href="#contact" class="btn btn-primary">Let's talk <span class="arrow">→</span></a>
+          <a href="#work" class="btn btn-ghost">See my track record</a>
+        </div>
+      </div>
+
+      <div class="artifact-stack reveal">
+        <div class="terminal">
+          <div class="t-head">
+            <span class="t-dot r"></span>
+            <span class="t-dot y"></span>
+            <span class="t-dot g"></span>
+            <span class="t-name">~/hamza · zsh</span>
+          </div>
+          <div class="t-body">
+            <div><span class="t-prompt">$</span>whoami</div>
+            <div class="t-out">business_development // gtm // sales</div>
+            <div><span class="t-prompt">$</span>sales --quarterly</div>
+            <div class="t-out"><span class="ok">$100K+</span> closed ✓</div>
+            <div><span class="t-prompt">$</span>kol --network</div>
+            <div class="t-out"><span class="ok">1,500+</span> (100M+ reach) ✓</div>
+            <div><span class="t-prompt">$</span>status<span class="caret"></span></div>
+          </div>
+        </div>
+
+        <div class="currently">
+          <div class="head">
+            <span class="dot"></span>
+            <span>currently</span>
+          </div>
+          <div class="row"><span class="k">building</span><span class="v accent">BlueOpm agentic suite · GTM for Own Finance</span></div>
+          <div class="row"><span class="k">studying</span><span class="v">Agentic AI systems for GTM</span></div>
+          <div class="row"><span class="k">based in</span><span class="v">Dubai, UAE</span></div>
+          <div class="row"><span class="k">status</span><span class="v">Looking for a kick-ass team to work with</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat">
+        <div class="stat-num" data-target="100" data-prefix="$" data-suffix="K+">0</div>
+        <div class="stat-label">quarterly sales</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="2.5" data-suffix="+ yr" data-raw="true">2.5</div>
+        <div class="stat-label">BD experience in Web3</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="1500" data-suffix="+">0</div>
+        <div class="stat-label">KOLs onboarded · SeedHunter</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="100" data-suffix="M+">0</div>
+        <div class="stat-label">combined reach</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="60" data-suffix="%">0</div>
+        <div class="stat-label">lift in outreach-to-deal rate</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="sec-num" aria-hidden="true">01</div>
+    <div class="reveal">
+      <div class="eyebrow">01 / Experience</div>
+      <h2 class="section-title">Sales, partnerships, <em>and operations.</em></h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="job active">
+        <div>
+          <div class="job-title">Co-Founder <span class="job-tag">Now</span></div>
+          <div class="job-company">Stealth Startup</div>
+          <ul class="job-points">
+            <li>Building <strong>agentic execution infrastructure</strong> for the next generation of founders and execs.</li>
+          </ul>
+        </div>
+        <div class="job-date">Apr 2026 → Present</div>
+      </div>
+      <div class="job active">
+        <div>
+          <div class="job-title">Freelance BD <span class="job-tag">Now</span></div>
+          <div class="job-company">Own Finance</div>
+          <ul class="job-points">
+            <li>Running <strong>trader research sprints</strong> targeting active onchain traders ahead of mainnet, for a pre-mainnet synthetic RWA and tokenized-assets protocol on Base.</li>
+            <li>Built the mainnet GTM narrative and a Twitter growth strategy for the protocol.</li>
+            <li>Shipped interactive protocol explainers and one-pagers, and surfaced product feedback from early traders.</li>
+          </ul>
+        </div>
+        <div class="job-date">May 2026 → Present</div>
+      </div>
+      <div class="job">
+        <div>
+          <div class="job-title">Business Development Manager</div>
+          <div class="job-company">CyberScope, a TAC Security Company · Dubai</div>
+          <ul class="job-points">
+            <li>Built and managed a pipeline of <strong>50+ Web3 projects</strong> in two months, flagging protocols ahead of launches, upgrades, and security reviews.</li>
+            <li>Ran targeted outreach to founders and protocol teams, driving adoption of audits, pentesting, and security services.</li>
+            <li>Acted as the bridge between project teams and auditors, translating technical requirements into clear audit scopes.</li>
+            <li>Developed partnership opportunities across security and compliance, engaging accelerators and infra providers.</li>
+          </ul>
+        </div>
+        <div class="job-date">Jan 2026 → Apr 2026</div>
+      </div>
+      <div class="job">
+        <div>
+          <div class="job-title">Strategy Operations Consultant</div>
+          <div class="job-company">Cubane™ · Dubai</div>
+          <ul class="job-points">
+            <li>Architected the cross-functional execution model aligning Testnet, Mainnet, and TGE milestones across teams.</li>
+            <li>Designed a scalable hiring system: scorecards, interview SOPs, sourcing pipelines, founder-independent decisions.</li>
+            <li>Increased relevant candidate inflow <strong>4×</strong> through ecosystem communities, advisor networks, and KOL referrals.</li>
+            <li>Cut time-to-hire <strong>45-55%</strong>, from 18-25 days down to 9-12 days on average.</li>
+          </ul>
+        </div>
+        <div class="job-date">Oct 2025 → Dec 2025</div>
+      </div>
+      <div class="job">
+        <div>
+          <div class="job-title">Business Development and Sales Manager</div>
+          <div class="job-company">QuillAudits · Web3 Security · Dubai</div>
+          <ul class="job-points">
+            <li>Owned inbound, ecosystem partnerships, and outbound outreach across the full sales cycle.</li>
+            <li>Contributed <strong>30%, 42%, and 45%</strong> of total sales in Q1, Q2, and Q3 respectively.</li>
+            <li>Prospected 300+ projects weekly, improving outreach-to-deal conversion by <strong>60%</strong>.</li>
+            <li>Revived stalled pipeline deals through consultative, security-focused follow-ups.</li>
+            <li>Represented QuillAudits at Token2049 and ETH Denver, hosting side-events and converting high-value leads.</li>
+          </ul>
+        </div>
+        <div class="job-date">Jan 2025 → Oct 2025</div>
+      </div>
+      <div class="job">
+        <div>
+          <div class="job-title">Founder's Office</div>
+          <div class="job-company">Hexaco Alpha</div>
+          <ul class="job-points">
+            <li>Built an organic KOL and media database, driving PR that landed <strong>Top 3 (3.59%)</strong> pre-TGE mindshare on Kaito Charts.</li>
+            <li>Ran cross-functional project management across marketing, BD, and investor relations for client accounts.</li>
+            <li>Led and mentored a team of 4 interns across lead generation and outreach.</li>
+          </ul>
+        </div>
+        <div class="job-date">Oct 2024 → Jan 2025</div>
+      </div>
+      <div class="job">
+        <div>
+          <div class="job-title">Business Development Manager</div>
+          <div class="job-company">SeedHunter · Dubai</div>
+          <ul class="job-points">
+            <li>Represented SeedHunter across the Indian Web3 ecosystem through consistent founder engagement.</li>
+            <li>Onboarded <strong>1,500+ KOLs</strong> with a combined reach of <strong>100M+</strong> across APAC and EMEA.</li>
+            <li>Built a curated community of 1,000+ early-stage investors to participate in project raises.</li>
+            <li>Secured partnerships at India Blockchain Summit and India Blockchain Week 2024.</li>
+          </ul>
+        </div>
+        <div class="job-date">Apr 2024 → Jan 2025</div>
+      </div>
+      <div class="job">
+        <div>
+          <div class="job-title">Operations Assistant</div>
+          <div class="job-company">BuildBear Labs · Singapore</div>
+          <ul class="job-points">
+            <li>Coordinated across product, partnerships, and growth using Notion and Asana.</li>
+            <li>Supported the founder at Devconnect Istanbul and Devcon Bangkok, handling logistics and merchandise.</li>
+            <li>Researched competitor participation to shape BuildBear's event and developer engagement strategy.</li>
+          </ul>
+        </div>
+        <div class="job-date">Oct 2023 → Dec 2023</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLKIT -->
+  <section id="toolkit">
+    <div class="sec-num" aria-hidden="true">02</div>
+    <div class="reveal">
+      <div class="eyebrow">02 / Toolkit</div>
+      <h2 class="section-title">How I get deals <em>done.</em></h2>
+      <p class="stack-intro">I run my desk like a product team: a stack of AI agents handles
+        the repetitive work so I can stay focused on strategy, partnerships, and the next deal.</p>
+    </div>
+    <div class="tech-grid reveal">
+      <div class="tech-pill"><span class="ico">→</span>AI agent orchestration</div>
+      <div class="tech-pill"><span class="ico">→</span>Workflow automation</div>
+      <div class="tech-pill"><span class="ico">→</span>LLM-powered ops</div>
+      <div class="tech-pill"><span class="ico">→</span>Automated lead follow-ups</div>
+      <div class="tech-pill"><span class="ico">→</span>Social scraping &amp; signals</div>
+      <div class="tech-pill"><span class="ico">→</span>Internal AI tooling</div>
+      <div class="tech-pill"><span class="ico">→</span>Prompt &amp; agent design</div>
+      <div class="tech-pill"><span class="ico">→</span>Ecosystem strategy</div>
+      <div class="tech-pill"><span class="ico">→</span>Full sales cycle ownership</div>
+      <div class="tech-pill"><span class="ico">→</span>KOL network building</div>
+      <div class="tech-pill"><span class="ico">→</span>CRM &amp; pipeline management</div>
+      <div class="tech-pill"><span class="ico">→</span>Enterprise &amp; institutional sales</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="sec-num" aria-hidden="true" style="left: 50%; right: auto; transform: translateX(-50%); opacity: 0.5;">03</div>
+    <div class="reveal">
+      <div class="eyebrow" style="justify-content:center;">03 / Inbox open</div>
+      <h2>Let's <span class="accent">talk</span>.</h2>
+      <p style="color: var(--ink-dim); font-size: 16px; max-width: 520px; margin: 0 auto;">
+        If you're building for the long term and want a kick-ass BD, GTM, or sales partner,
+        I want to hear from you.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:0xaitch@gmail.com" class="contact-link">→ email</a>
+        <a href="https://x.com/0xaitch" target="_blank" rel="noopener" class="contact-link">→ twitter</a>
+        <a href="https://linkedin.com/in/aitchkay" target="_blank" rel="noopener" class="contact-link">→ linkedin</a>
+        <a href="https://t.me/thisisaitchkay" target="_blank" rel="noopener" class="contact-link">→ telegram</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Hamza Khan <span class="sep">·</span> built with care
+</footer>
+
+<script>
+  function tickClock() {
+    const d = new Date();
+    const hh = String(d.getHours()).padStart(2, '0');
+    const mm = String(d.getMinutes()).padStart(2, '0');
+    const ss = String(d.getSeconds()).padStart(2, '0');
+    document.getElementById('clock').textContent = `${hh}:${mm}:${ss}`;
+  }
+  tickClock();
+  setInterval(tickClock, 1000);
+
+  /* ─── Name scramble effect ─── */
+  const scrambleChars = '!<>-_\\/[]{}—=+*^?#';
+  class TextScramble {
+    constructor(el) {
+      this.el = el;
+      this.frame = 0;
+      this.frameRequest = null;
+      this.queue = [];
+      this.update = this.update.bind(this);
+    }
+    setText(newText) {
+      const oldText = this.el.textContent;
+      const length = Math.max(oldText.length, newText.length);
+      const promise = new Promise((resolve) => { this.resolve = resolve; });
+      this.queue = [];
+      for (let i = 0; i < length; i++) {
+        const from = oldText[i] || '';
+        const to = newText[i] || '';
+        const start = Math.floor(Math.random() * 20);
+        const end = start + Math.floor(Math.random() * 20);
+        this.queue.push({ from, to, start, end, char: '' });
+      }
+      cancelAnimationFrame(this.frameRequest);
+      this.frame = 0;
+      this.update();
+      return promise;
+    }
+    update() {
+      let output = '';
+      let complete = 0;
+      for (let i = 0; i < this.queue.length; i++) {
+        const q = this.queue[i];
+        if (this.frame >= q.end) {
+          complete++;
+          output += q.to;
+        } else if (this.frame >= q.start) {
+          if (!q.char || Math.random() < 0.28) {
+            q.char = scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+          }
+          output += `<span class="scramble-char">${q.char}</span>`;
+        } else {
+          output += q.from;
+        }
+      }
+      this.el.innerHTML = output;
+      if (complete === this.queue.length) {
+        this.resolve();
+      } else {
+        this.frameRequest = requestAnimationFrame(this.update);
+        this.frame++;
+      }
+    }
+  }
+
+  const nameEl = document.getElementById('nameScramble');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (nameEl && !prefersReducedMotion) {
+    const fx = new TextScramble(nameEl);
+    const names = ['Hamza Khan', 'aitch'];
+    let counter = 0;
+    const cycle = () => {
+      fx.setText(names[counter % names.length]).then(() => {
+        counter++;
+        setTimeout(cycle, 3200);
+      });
+    };
+    setTimeout(cycle, 2600);
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  let sx = window.innerWidth / 2, sy = window.innerHeight / 3;
+  let tx = sx, ty = sy;
+  window.addEventListener('mousemove', (e) => { tx = e.clientX; ty = e.clientY; });
+  (function followSpot() {
+    sx += (tx - sx) * 0.08;
+    sy += (ty - sy) * 0.08;
+    document.documentElement.style.setProperty('--spot-x', sx + 'px');
+    document.documentElement.style.setProperty('--spot-y', sy + 'px');
+    requestAnimationFrame(followSpot);
+  })();
+
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const target = +el.dataset.target;
+        const suffix = el.dataset.suffix || '';
+        const prefix = el.dataset.prefix || '';
+        const isDecimal = !Number.isInteger(target);
+        const duration = 1200;
+        const start = performance.now();
+        function tick(now) {
+          const p = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          const cur = isDecimal ? (eased * target).toFixed(1) : Math.floor(eased * target);
+          el.textContent = prefix + (p === 1 ? target : cur) + (p === 1 ? suffix : '');
+          if (p < 1) requestAnimationFrame(tick);
+          else el.textContent = prefix + target + suffix;
+        }
+        requestAnimationFrame(tick);
+        statObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-num').forEach(el => statObserver.observe(el));
+</script>
+
+</body>
+</html>
