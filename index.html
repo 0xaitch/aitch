@@ -229,6 +229,26 @@
   @media (max-width: 600px) { .job { grid-template-columns: 1fr; gap: 4px; } }
 
   .stack-intro { color: var(--ink-dim); font-size: 15px; line-height: 1.6; max-width: 560px; margin: 14px 0 4px; }
+
+  .appearances-list { display: flex; flex-direction: column; gap: 16px; }
+  .appearance-card {
+    display: flex; gap: 18px; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 26px 28px;
+  }
+  .appearance-icon {
+    width: 34px; height: 34px; flex-shrink: 0;
+    border-radius: 8px; background: var(--accent-dim); border: 1px solid rgba(240,184,102,0.25);
+    display: flex; align-items: center; justify-content: center; font-size: 15px;
+  }
+  .appearance-title {
+    font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 4px; line-height: 1.5;
+  }
+  .appearance-title .event-name {
+    text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px;
+  }
+  .appearance-context { color: var(--ink-mute); font-weight: 400; font-size: 14px; }
+  .appearance-desc { color: var(--ink-dim); font-size: 14px; margin-bottom: 12px; }
   .tech-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
   .tech-pill { padding: 12px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; font-size: 13.5px; color: var(--ink-dim); display: flex; align-items: center; gap: 10px; transition: all 0.2s; }
   .tech-pill:hover { border-color: var(--line-2); color: var(--ink); background: rgba(255,255,255,0.03); }
@@ -350,6 +370,7 @@
 <nav>
   <a href="#home">Home</a>
   <a href="#work">Work</a>
+  <a href="#talks">Talks</a>
   <a href="#toolkit">Toolkit</a>
   <a href="#contact" class="cta">Get in touch</a>
 </nav>
@@ -412,10 +433,9 @@
             <span class="dot"></span>
             <span>currently</span>
           </div>
-          <div class="row"><span class="k">building</span><span class="v accent">BlueOpm agentic suite · GTM for Own Finance</span></div>
           <div class="row"><span class="k">studying</span><span class="v">Agentic AI systems for GTM</span></div>
           <div class="row"><span class="k">based in</span><span class="v">Dubai, UAE</span></div>
-          <div class="row"><span class="k">status</span><span class="v">Looking for a kick-ass team to work with</span></div>
+          <div class="row"><span class="k">status</span><span class="v accent">Open to BD, GTM &amp; sales roles</span></div>
         </div>
       </div>
     </div>
@@ -429,28 +449,6 @@
       <h2 class="section-title">Sales, partnerships, <em>and operations.</em></h2>
     </div>
     <div class="timeline reveal">
-      <div class="job active">
-        <div>
-          <div class="job-title">Co-Founder <span class="job-tag">Now</span></div>
-          <div class="job-company">Stealth Startup</div>
-          <ul class="job-points">
-            <li>Building <strong>agentic execution infrastructure</strong> for the next generation of founders and execs.</li>
-          </ul>
-        </div>
-        <div class="job-date">Apr 2026 → Present</div>
-      </div>
-      <div class="job active">
-        <div>
-          <div class="job-title">Freelance BD <span class="job-tag">Now</span></div>
-          <div class="job-company">Own Finance</div>
-          <ul class="job-points">
-            <li>Running <strong>trader research sprints</strong> targeting active onchain traders ahead of mainnet, for a pre-mainnet synthetic RWA and tokenized-assets protocol on Base.</li>
-            <li>Built the mainnet GTM narrative and a Twitter growth strategy for the protocol.</li>
-            <li>Shipped interactive protocol explainers and one-pagers, and surfaced product feedback from early traders.</li>
-          </ul>
-        </div>
-        <div class="job-date">May 2026 → Present</div>
-      </div>
       <div class="job">
         <div>
           <div class="job-title">Business Development Manager</div>
@@ -462,7 +460,7 @@
             <li>Developed partnership opportunities across security and compliance, engaging accelerators and infra providers.</li>
           </ul>
         </div>
-        <div class="job-date">Jan 2026 → Apr 2026</div>
+        <div class="job-date">Jan 2026 → May 2026</div>
       </div>
       <div class="job">
         <div>
@@ -531,11 +529,49 @@
     </div>
   </section>
 
-  <!-- TOOLKIT -->
-  <section id="toolkit">
+  <!-- TALKS -->
+  <section id="talks">
     <div class="sec-num" aria-hidden="true">02</div>
     <div class="reveal">
-      <div class="eyebrow">02 / Toolkit</div>
+      <div class="eyebrow">02 / Speaking</div>
+      <h2 class="section-title">Public Appearance <em>Highlights.</em></h2>
+    </div>
+    <div class="appearances-list reveal">
+      <div class="appearance-card">
+        <div class="appearance-icon">🎤</div>
+        <div>
+          <div class="appearance-title">
+            <span class="event-name">Onchain Community Mixer by Aya Wallet</span>
+            <span class="appearance-context">(India Blockchain Week 2025)</span>
+          </div>
+          <div class="appearance-desc">Keynote on <strong>Finding your First Break in Web3</strong> — a blueprint for an early builder into the trenches, backed by relevant case studies.</div>
+          <ul class="job-points">
+            <li><strong>Educated early builders on industry realities</strong> by simplifying complex topics like contribution pathways, skill leverage, public proof-of-work, and community-led opportunity funnels.</li>
+            <li><strong>Engaged with attendees 1:1 post-session</strong>, helping students and early professionals map clear next steps, identify gaps in their approach, and understand how to build credibility and momentum in Web3.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="appearance-card">
+        <div class="appearance-icon">💡</div>
+        <div>
+          <div class="appearance-title">
+            <span class="event-name">Polkadot x Agents Clan Community Meetup</span>
+          </div>
+          <div class="appearance-desc"><strong>Community Interaction Session</strong></div>
+          <ul class="job-points">
+            <li>Delivered a talk on <strong>Web3 security</strong>, helping builders understand real risks, common vulnerabilities, and why early security planning matters for long-term project trust.</li>
+            <li>Conducted <strong>1:1 mentoring sessions</strong> with students and early builders, offering personalized feedback on what's working, what isn't, and how they can accelerate their growth in the ecosystem.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLKIT -->
+  <section id="toolkit">
+    <div class="sec-num" aria-hidden="true">03</div>
+    <div class="reveal">
+      <div class="eyebrow">03 / Toolkit</div>
       <h2 class="section-title">How I get deals <em>done.</em></h2>
       <p class="stack-intro">I run my desk like a product team: a stack of AI agents handles
         the repetitive work so I can stay focused on strategy, partnerships, and the next deal.</p>
@@ -558,9 +594,9 @@
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
-    <div class="sec-num" aria-hidden="true" style="left: 50%; right: auto; transform: translateX(-50%); opacity: 0.5;">03</div>
+    <div class="sec-num" aria-hidden="true" style="left: 50%; right: auto; transform: translateX(-50%); opacity: 0.5;">04</div>
     <div class="reveal">
-      <div class="eyebrow" style="justify-content:center;">03 / Inbox open</div>
+      <div class="eyebrow" style="justify-content:center;">04 / Inbox open</div>
       <h2>Let's <span class="accent">talk</span>.</h2>
       <p style="color: var(--ink-dim); font-size: 16px; max-width: 520px; margin: 0 auto;">
         If you're building for the long term and want a kick-ass BD, GTM, or sales partner,
